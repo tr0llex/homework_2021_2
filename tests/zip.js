@@ -86,7 +86,8 @@ QUnit.module('Тестируем функцию zip', function () {
 		assert.deepEqual(zip(1, {name: 'age'}, {value: 42}, {name: 'cost'}, {value: -6}, "string"), obj);
 	});
 
-	QUnit.test('Функция правильно работает, когда в неё ничего не передаётся', function (assert) {
+	QUnit.test('Функция правильно работает, когда в неё ничего не передаётся или передается только null', function (assert) {
 		assert.deepEqual(zip(), {});
+		assert.deepEqual(zip(null), {});
 	});
 });

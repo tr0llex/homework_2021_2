@@ -2,8 +2,10 @@
 
 /**
  * Объединить объекты
- * @returns {Object} возвращает объект, содержащий все поля из всех переданных объектов
+ * @param  {...object} objects это объекты, которые необходимо объединить
+ * @returns {object} возвращает объект, содержащий все поля из всех переданных объектов
  */
-function zip(...objects) {
-    return objects.filter(obj => typeof obj == 'object').reduceRight((res, cur) => ({...res, ...cur}), {});
+const zip = (...objects) => {
+    objects = objects.filter(obj => (typeof obj === 'object' && obj !== null))
+    return objects.reduceRight((res, cur) => ({...res, ...cur}), {});
 }
